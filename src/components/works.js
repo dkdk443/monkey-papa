@@ -7,7 +7,7 @@ const Works = () => {
   const [posts, setPosts] = useState([]);
   const urlEndpoint = 'https://graph.facebook.com/v13.0/';
   const limit = 200;
-  const accessToken = process.env.ACCRESS_TOKEN;
+  const accessToken = process.env.ACCSESS_TOKEN;
   const businessId = process.env.BUSINESS_ID;
 
   const compareFunc = (a, b) => {
