@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faReact } from "@fortawesome/free-brands-svg-icons"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import axios from "axios"
@@ -37,27 +39,22 @@ const Works = () => {
         })
   }, [])
 
-    return posts.map(post =>
-      <div className='post-item' key={post.id}
-        style={{
-          position: 'relative'
-        }}>
+  return posts.map(post =>
+    <a href={post.permalink} target="_blank">
+      <div className='post-item' key={post.id}>
         <div className="post-item__image">
           <img src={post.media_url} alt={post.caption} className='post-item-image' />
+          <div className="mask">
+            <div className="caption">
+              <p>{post.caption}</p>
+            </div>
+          </div>
         </div>
-        <div className="post-item__caption"
-          style={{
-            position: "absolute",
-            top: "0",
-            fontSize: "18px",
-            lineHeight: "1.4",
-            padding: "8px"
-        }}>
-          <span>{post.like_count}</span>
-          <p>{post.caption}</p>
-       </div>
-     
+        <span className='like'>
+          <FontAwesomeIcon icon="fa-solid fa-heart" />
+          {post.like_count} likes</span>
       </div>
+    </a>
     );
   }
 

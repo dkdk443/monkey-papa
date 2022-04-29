@@ -2,6 +2,9 @@ h2 {
   font-size: 18px;
   margin-top: 32px;
 }
+a {
+  text-decoration: none;
+}
 .section {
   min-height: 640px;
   display: flex;
@@ -59,14 +62,39 @@ h2 {
 .post-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  .post-item__caption {
+    display: none;
+  }
   .post-item {
-  filter: brightness(130%);
-    &__caption {
-      display: none;
+    filter: brightness(130%);
+    margin-bottom: 12px;
+    &__image {
+      position: relative;
     }
-    &__image:hover {
-      filter: brightness(30%);
+    .caption {
+      color: #fff;
+      font-size: 16px;
+      padding: 8px;
+      overflow: hidden;
+      line-height: 1.5;
     }
+    .mask {
+      	width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color:	rgba(0,0,0,0.6);
+        -webkit-transition:	all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    &:hover {
+      .mask {
+        opacity: 1;
+      }
+    }
+
   }
   .post-item-image {
     width: 220px;
@@ -108,4 +136,8 @@ input {
     font-weight: 500;
     margin-bottom: 4px;
   }
+}
+.like {
+  font-size: 16px;
+  color: rgb(161, 49, 49);
 }
