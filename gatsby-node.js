@@ -1,3 +1,4 @@
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   createPage({

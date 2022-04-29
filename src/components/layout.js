@@ -1,18 +1,15 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import "@fontsource/zen-maru-gothic"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Header from "./header"
 import "./layout.css"
+import Works from "./works"
+import About from "./about"
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,24 +22,76 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
+      <div>
+        <Header
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+        />
+        <main
           style={{
-            marginTop: `2rem`,
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            flexDirection: "column",
+            backgroundColor: "#FAF7F0"
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+          <div className="section">
+            <div style={{
+              marginRight: "64px",
+            }}>
+               <h1
+              style={{
+                fontSize: "32px",
+                fontFamily: "Zen Maru Gothic, sans-serif",
+                 textAlign: "right"
+            }}
+            >アトリエ 出本</h1>
+            <p
+              style={{
+                  marginRight: "40px",
+                  fontSize: "24px",
+                  textAlign: "right"
+              }}
+            >Atelier Demoto</p>
+            </div>
+            <StaticImage
+              src="../images/hero.png"
+              alt="アトリエ出本"
+              placeholder="blurred"
+              layout="fixed"
+              width={240}
+              height={320}
+              loading="lazy"
+            />
+          </div>
+          <div className="section"
+            style={{
+              margin: "100px 0"
+          }}>
+            <About />
+          </div>
+          <div className="section">
+            <div className="innner_content">
+              <h2>Works</h2>
+              <div className="post-list">
+                   <Works />
+              </div>
+            </div>
+          </div>
+          <div className="section">
+            <div className="innner_content">
+              <h2>Contact</h2>
+              <p>オーダーメイドの洋服も承っております。</p>
+              <div className="prices">
+                <div className="price-title">参考価格</div>
+                <div>シャツ：¥15,000~</div>
+                <div>ワンピース：¥20,000~</div>
+                <div>コート：¥50,000~</div>
+              </div>
+              <p> <a href="https://www.instagram.com/papa.monkey/">Instagram</a>のダイレクトメールよりお問い合わせください。</p>
+           </div>
+          </div>
+        </main>
       </div>
     </>
   )
