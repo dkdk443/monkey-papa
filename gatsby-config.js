@@ -5,8 +5,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `アトリエ出本`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    titleTemplate: "%s · アトリエ出本",
+    description: `広島県東広島市志和町の山里で、柿渋染や鯉のぼり、大漁旗、藍古布を用いて洋服を製作しています。`,
     author: `@demoto`,
+    image: `/public/static/coat.png`,
     siteUrl: `https://monkey-papa.com`,
   },
   plugins: [
