@@ -1,4 +1,6 @@
 const env = process.env.NODE_ENV || 'development';
+console.log(env);
+console.log(process.env.ACCSESS_TOKEN);
 require('dotenv').config({path: `./.env.${env}`});
 
 module.exports = {
