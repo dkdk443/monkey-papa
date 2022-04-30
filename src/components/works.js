@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faReact } from "@fortawesome/free-brands-svg-icons"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios"
 
 const Works = () => {
@@ -51,7 +48,7 @@ const Works = () => {
           </div>
         </div>
         <span className='like'>
-          {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
+          <FontAwesomeIcon icon="fa-solid fa-heart" />
           {post.like_count} likes</span>
       </div>
     </a>
