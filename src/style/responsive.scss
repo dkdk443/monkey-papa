@@ -1,7 +1,6 @@
 @media only screen and (max-width:600px) {
   .section {
     flex-direction: column;
-
     &__left {
        max-width: 100% !important;
        min-height: 100px !important;
@@ -23,6 +22,9 @@
       }
 
     }
+  }
+  #about {
+    flex-direction: column-reverse !important;
   }
   .main-title {
     display: flex;

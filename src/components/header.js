@@ -1,5 +1,8 @@
 import * as React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Header = () => (
   <header className="header" style={{
@@ -17,19 +20,29 @@ const Header = () => (
       </h1>
     </div>
     <div className="header__right">
-      <ul style={{
-        display: "flex",
-        listStyle: "none",
-      }}>
-        {/* <Link>
-          <li className="header-link">About</li>
-        </Link>
-         <Link>
-          <li className="header-link">Works</li>
-        </Link>
-         <Link>
-          <li className="header-link">Contact</li>
-        </Link> */}
+      <ul>
+         <li
+          className="header-link"
+          onClick={() =>  scrollTo('#top')}
+        >Top</li>
+        <li
+          className="header-link"
+          onClick={() =>  scrollTo('#about')}
+        >About</li>
+        <li
+          className="header-link"
+           onClick={() =>  scrollTo('#works')}
+        >Works</li>
+        <li
+          className="header-link"
+           onClick={() =>  scrollTo('#contact')}
+        >Contact</li>
+        <a
+          href="https://www.instagram.com/papa.monkey/" target="_blank" rel="noreferrer"
+          className="header-link-icon"
+        >
+            <FontAwesomeIcon icon={faInstagram} />
+        </a>
       </ul>
     </div>
 

@@ -36,7 +36,7 @@ const Layout = () => {
             backgroundColor: "#FAF7F0"
           }}
         >
-          <div className="section">
+          <div className="section" id="top">
             <div style={{
               marginRight: "64px",
             }}
@@ -67,14 +67,15 @@ const Layout = () => {
             />
           </div>
           <div className="section"
+            id="about"
             style={{
               margin: "100px 0"
           }}>
             <About />
           </div>
-          <div className="section">
+          <div className="section" id="works">
             <div className="innner_content">
-              <h2>Instagram  <a style={{
+              <h2>Works <small>by Instagram</small>  <a style={{
                 fontSize: "12px"
               }}
                 href="https://www.instagram.com/papa.monkey/"
@@ -86,7 +87,7 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <div className="section">
+          <div className="section" id="contact">
             <div className="innner_content">
               <h2>Contact</h2>
               <p>オーダーメイドの洋服も承っております。</p>
@@ -96,7 +97,11 @@ const Layout = () => {
                 <div>ワンピース：¥20,000~</div>
                 <div>コート：¥50,000~</div>
               </div>
-              <p> <a href="https://www.instagram.com/papa.monkey/">Instagram</a>のダイレクトメールよりお問い合わせください。</p>
+              <p>
+                <a href="https://www.instagram.com/papa.monkey/"
+                  target="_blank"
+                  rel="noreferrer"
+                >Instagram</a>のダイレクトメールよりお問い合わせください。</p>
            </div>
           </div>
         </main>

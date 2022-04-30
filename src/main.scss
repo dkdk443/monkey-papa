@@ -46,11 +46,6 @@ a {
        .year {
          margin-right: 10px;
          font-weight: 600;
-
-
-       }
-       .content {
-
        }
      }
   }
@@ -120,9 +115,26 @@ input {
   border-radius: 8px;
 }
 
-.header-link {
-  margin-left: 20px;
+.header {
+  height: 80px;
+  z-index: 10;
+  font-size: 20px;
+  ul {
+    display: flex;
+    list-style: none;
+    margin-top: 40px;
+    .header-link {
+      margin: 0 20px;
+      cursor: pointer;
+    }
+    .header-link-icon {
+      font-size: 1.4rem;
+      margin-right: 12px;
+      color: #27415F;
+    }
+  }
 }
+
 * {
   font-family: "Zen Maru Gothic",
     sans-seri;
