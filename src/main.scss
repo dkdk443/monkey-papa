@@ -7,6 +7,10 @@ h2 {
 a {
   text-decoration: none;
 }
+* {
+  font-family: "Zen Maru Gothic",
+    sans-seri;
+  } 
 
 .section {
   opacity: 0;
@@ -115,9 +119,19 @@ input {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 80px;
   z-index: 10;
   font-size: 20px;
+  animation-name:fadeDownAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  color: #27415F;
   .menu {
    display: none;
   }
@@ -137,10 +151,7 @@ input {
   }
 }
 
-* {
-  font-family: "Zen Maru Gothic",
-    sans-seri;
-  } 
+
 
 .prices {
   background-color: rgb(225, 225, 225);
@@ -175,6 +186,18 @@ input {
   justify-content: center;
   padding: 12px 0;
  
+}
+
+@keyframes fadeDownAnime{
+  from {
+    opacity: 0;
+	transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
 }
 
 

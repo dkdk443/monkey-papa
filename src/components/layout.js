@@ -20,6 +20,7 @@ const Layout = () => {
   `)
   const sectionNames = ["top", "about", "works", "contact"];
   const elms = useRef([]);
+
   sectionNames.forEach((_, i) => {
     elms.current[i] = React.createRef()
   })
@@ -27,12 +28,9 @@ const Layout = () => {
   const date = new Date();
   const year = date.getFullYear();
   const [height, setHeight] = useState(0);
-
   const toggleScroll = () => {
     setHeight(window.scrollY);
   }
-
-  const isTop = height === 0 ? true : false;
 
   useEffect(() => {
     let elmsCurrent = elms.current;
@@ -40,6 +38,7 @@ const Layout = () => {
       const rect = JSON.parse(JSON.stringify(elm.current.getBoundingClientRect()));
       const targetHeight = rect.y;
       let target = document.getElementById(elm.current.id);
+
       if (elm.current.id === 'top') {
         setTimeout(() => {
             target.classList.add('show');
@@ -49,7 +48,7 @@ const Layout = () => {
            target.classList.add('show');
         }
       } else {
-        if (targetHeight < 60) {
+        if (targetHeight < 300) {
           let target = document.getElementById(elm.current.id);
           target.classList.add('show');
         }
@@ -72,8 +71,7 @@ const Layout = () => {
           }}
         >
         <Header
-          siteTitle={data.site.siteMetadata?.title || `Title`}
-          isTop={isTop}
+            siteTitle={data.site.siteMetadata?.title || `Title`}
         />
           <div className="section" id="top" ref={elms.current[0]}>
             <div style={{
