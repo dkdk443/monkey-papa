@@ -8,7 +8,7 @@ module.exports = {
     titleTemplate: "%s · アトリエ出本",
     description: `広島県東広島市志和町の山里で、柿渋染や鯉のぼり、大漁旗、藍古布を用いて洋服を製作しています。`,
     author: `@demoto`,
-    image: `/public/static/coat.png`,
+    image: `/static/coat.png`,
     siteUrl: `https://monkey-papa.com`,
   },
   plugins: [

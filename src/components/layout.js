@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import "@fontsource/zen-maru-gothic"
 import { StaticImage } from "gatsby-plugin-image"
-
+import Seo from "../components/seo"
 import Header from "./header"
 import "./layout.css"
 import Works from "./works"
@@ -64,6 +64,7 @@ const Layout = () => {
 
   return (
     <>
+      <Seo title="アトリエ出本"/>
       <div className='layout'>
         <main
           style={{
