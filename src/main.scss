@@ -1,5 +1,7 @@
+@import '../src/style/responsive.scss';
+
 h2 {
-  font-size: 18px;
+  font-size: 24px;
   margin-top: 32px;
 }
 a {
@@ -141,3 +143,4 @@ input {
   font-size: 16px;
   color: rgb(161, 49, 49);
 }
+

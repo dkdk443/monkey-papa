@@ -37,7 +37,8 @@ const Layout = () => {
           <div className="section">
             <div style={{
               marginRight: "64px",
-            }}>
+            }}
+            className="main-title">
                <h1
               style={{
                 fontSize: "32px",
@@ -71,7 +72,10 @@ const Layout = () => {
           </div>
           <div className="section">
             <div className="innner_content">
-              <h2>Works</h2>
+              <h2>Instagram  <a style={{
+                fontSize: "12px"
+              }} href="https://www.instagram.com/papa.monkey/">@papa.monkey</a></h2>
+
               <div className="post-list">
                    <Works />
               </div>

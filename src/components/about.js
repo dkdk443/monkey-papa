@@ -40,7 +40,8 @@ const About = () => (
       <div className="section__right__top">
           <h2>About</h2>
           <h3>出本 正彦</h3>
-          <p>Demoto Masahiko</p>
+        <p>Demoto Masahiko</p>
+        <p>広島県東広島市志和町の山里で、柿渋染や鯉のぼり、大漁旗、藍古布を用いて洋服を製作しています。</p>
       </div>
       <div className="section__right__bottom">
         <h2>Profile</h2>
@@ -70,7 +71,7 @@ const years = [
   },
   {
     "year": "1986",
-    "content": "帰広 アトリエモンキーパパ開設"
+    "content": "出身地広島に帰る アトリエモンキーパパ開設"
   },
   {
     "year": "2001",

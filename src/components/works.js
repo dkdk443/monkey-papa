@@ -48,7 +48,7 @@ const Works = () => {
           </div>
         </div>
         <span className='like'>
-          <FontAwesomeIcon icon="fa-solid fa-heart" />
+          {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
           {post.like_count} likes</span>
       </div>
     </a>
