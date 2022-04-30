@@ -1,11 +1,30 @@
 @media only screen and (max-width:600px) {
+  p {
+    font-size: 1.2em;
+  }
   .header {
+    position: relative;
+    .menu-item {
+      font-size: 24px;
+      margin: 0 !important;
+      .header-link {
+       padding-bottom: 10px;
+      }
+      .header-link-icon {
+        padding-bottom: 10px;
+      }
+    }
     .menu {
         display: block;
         z-index: 10;
      }
+    &__right {
+      position: absolute;
+      top: 0;
+    }
     &__right ul {
       flex-direction: column;
+
       li {
         text-align: end;
       }
