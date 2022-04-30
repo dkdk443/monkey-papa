@@ -9,8 +9,8 @@ const Works = () => {
   const [posts, setPosts] = useState([]);
   const urlEndpoint = 'https://graph.facebook.com/v13.0/';
   const limit = 200;
-  const accessToken = process.env.ACCSESS_TOKEN;
-  const businessId = process.env.BUSINESS_ID;
+  const accessToken = process.env.GATSBY_ACCSESS_TOKEN;
+  const businessId = process.env.GATSBY_BUSINESS_ID;
 
   const compareFunc = (a, b) => {
     const aPost = a.like_count;

@@ -4,7 +4,7 @@ import Seo from "../components/seo"
 import '../main.scss'
 const env = process.env.NODE_ENV || 'development';
 console.log(env);
-console.log(process.env.ACCSESS_TOKEN);
+console.log(process.env.GATSBY_ACCSESS_TOKEN);
 
 const IndexPage = () => {
   return (
