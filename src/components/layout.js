@@ -113,7 +113,7 @@ const Layout = () => {
           </div>
           <div className="section up" id="works" ref={elms.current[2]}>
             <div className="innner_content">
-              <h2>Works <small>by Instagram</small>  <a style={{
+              <h2>Works <a style={{
                 fontSize: "12px"
               }}
                 href="https://www.instagram.com/papa.monkey/"
