@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import "@fontsource/zen-maru-gothic"
 import { StaticImage } from "gatsby-plugin-image"
@@ -18,15 +18,51 @@ const Layout = () => {
       }
     }
   `)
+  const sectionNames = ["top", "about", "works", "contact"];
+  const elms = useRef([]);
+  sectionNames.forEach((_, i) => {
+    elms.current[i] = React.createRef()
+  })
+
   const date = new Date();
   const year = date.getFullYear();
+  const [height, setHeight] = useState(0);
+
+  const toggleScroll = () => {
+    setHeight(window.scrollY);
+  }
+
+  const isTop = height === 0 ? true : false;
+
+  useEffect(() => {
+    let elmsCurrent = elms.current;
+    elmsCurrent.forEach(elm => {
+      const rect = JSON.parse(JSON.stringify(elm.current.getBoundingClientRect()));
+      const targetHeight = rect.y;
+      console.log(elm.current.id + ':' + rect.bottom);
+      let target = document.getElementById(elm.current.id);
+      if (elm.current.id === 'top') {
+        setTimeout(() => {
+            target.classList.add('show');
+        }, 500)
+      } else if (elm.current.id === 'contact') {
+        if (rect.bottom > 600) {
+           target.classList.add('show');
+        }
+      } else {
+        if (targetHeight < 60) {
+          let target = document.getElementById(elm.current.id);
+          target.classList.add('show');
+        }
+      }
+    })
+    window.addEventListener('scroll', toggleScroll);
+    return () => window.removeEventListener('scroll', toggleScroll)
+  })
 
   return (
     <>
-      <div>
-        <Header
-          siteTitle={data.site.siteMetadata?.title || `Title`}
-        />
+      <div className='layout'>
         <main
           style={{
             display: "flex",
@@ -36,7 +72,11 @@ const Layout = () => {
             backgroundColor: "#FAF7F0"
           }}
         >
-          <div className="section" id="top">
+        <Header
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+          isTop={isTop}
+        />
+          <div className="section" id="top" ref={elms.current[0]}>
             <div style={{
               marginRight: "64px",
             }}
@@ -66,14 +106,15 @@ const Layout = () => {
               loading="lazy"
             />
           </div>
-          <div className="section"
+          <div className="section up"
             id="about"
+            ref={elms.current[1]}
             style={{
               margin: "100px 0"
           }}>
             <About />
           </div>
-          <div className="section" id="works">
+          <div className="section up" id="works" ref={elms.current[2]}>
             <div className="innner_content">
               <h2>Works <small>by Instagram</small>  <a style={{
                 fontSize: "12px"
@@ -87,7 +128,7 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <div className="section" id="contact">
+          <div className="section up" id="contact" ref={elms.current[3]}>
             <div className="innner_content">
               <h2>Contact</h2>
               <p>オーダーメイドの洋服も承っております。</p>

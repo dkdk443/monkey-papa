@@ -7,8 +7,11 @@ h2 {
 a {
   text-decoration: none;
 }
+
 .section {
-  min-height: 640px;
+  opacity: 0;
+  transition: all .5s ease;
+  min-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,12 +52,18 @@ a {
        }
      }
   }
+
+}
+.show {
+  opacity: 1;
+  transform: none;
 }
 
 .innner_content {
   width: 900px;
   margin-top: 128px;
   padding: 32px 64px;
+  min-height: 600px;
 }
 .post-list {
   display: grid;
@@ -97,8 +106,6 @@ a {
     width: 220px;
   }
 }
-
-
 
 .seach-area {
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.276);

@@ -1,4 +1,15 @@
 @media only screen and (max-width:600px) {
+  .header {
+   &__right ul {
+     flex-direction: column;
+     li {
+       text-align: end;
+     }
+     a {
+       text-align: end;
+     }
+   }
+  }
   .section {
     flex-direction: column;
     &__left {
@@ -9,14 +20,13 @@
          top: 0;
        }
     }
-
     &__right {
       padding: 0 !important;
     }
 
     .innner_content {
        max-width: 100% !important;
-       padding: 0 20px;
+       padding: 20px;
       .post-list {
         grid-template-columns: repeat(2, 1fr) !important;
       }

@@ -5,7 +5,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Header = () => (
-  <header className="header" style={{
+  <header className='header' style={{
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
@@ -45,7 +45,6 @@ const Header = () => (
         </a>
       </ul>
     </div>
-
   </header>
 )
 
