@@ -25,16 +25,6 @@ const About = () => (
         className='image2'
 
       />
-       {/* <StaticImage
-        src="../images/textile.png"
-        alt="アトリエ出本"
-        placeholder="blurred"
-        layout="fixed"
-        width={240}
-        height={240}
-        loading="lazy"
-        className='image3'
-      /> */}
     </div>
     <div className="section__right">
       <div className="section__right__top">

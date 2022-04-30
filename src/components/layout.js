@@ -74,7 +74,10 @@ const Layout = () => {
             <div className="innner_content">
               <h2>Instagram  <a style={{
                 fontSize: "12px"
-              }} href="https://www.instagram.com/papa.monkey/">@papa.monkey</a></h2>
+              }}
+                href="https://www.instagram.com/papa.monkey/"
+                target="_blank" rel="noreferrer"
+              >@papa.monkey</a></h2>
 
               <div className="post-list">
                    <Works />
