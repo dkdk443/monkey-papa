@@ -5,6 +5,7 @@ import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
+
 const Header = () => (
   <header className='header'>
     <div className="header__left">

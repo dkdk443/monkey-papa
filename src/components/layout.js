@@ -7,6 +7,10 @@ import Header from "./header"
 import "./layout.css"
 import Works from "./works"
 import About from "./about"
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 const Layout = () => {
   const data = useStaticQuery(graphql`
