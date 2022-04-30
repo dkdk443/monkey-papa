@@ -1,14 +1,19 @@
 @media only screen and (max-width:600px) {
   .header {
-   &__right ul {
-     flex-direction: column;
-     li {
-       text-align: end;
+    .menu {
+        display: block;
+        z-index: 10;
      }
-     a {
-       text-align: end;
-     }
-   }
+    &__right ul {
+      flex-direction: column;
+      
+      li {
+        text-align: end;
+      }
+      a {
+        text-align: end;
+      }
+    }
   }
   .section {
     flex-direction: column;

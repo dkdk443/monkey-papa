@@ -39,7 +39,6 @@ const Layout = () => {
     elmsCurrent.forEach(elm => {
       const rect = JSON.parse(JSON.stringify(elm.current.getBoundingClientRect()));
       const targetHeight = rect.y;
-      console.log(elm.current.id + ':' + rect.bottom);
       let target = document.getElementById(elm.current.id);
       if (elm.current.id === 'top') {
         setTimeout(() => {
