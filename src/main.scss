@@ -141,6 +141,16 @@ input {
 }
 .like {
   font-size: 16px;
-  color: rgb(161, 49, 49);
+  color: rgb(70, 70, 70);
+  display: inline-block;
+  width: 100%;
+  text-align: end;
+  .like-icon {
+    margin-right: 4px;
+  }
+  .like-count {
+    margin-right: 8px;
+  }
 }
+
 
