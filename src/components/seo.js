@@ -44,6 +44,10 @@ function Seo({ description, lang, meta, title }) {
           property: `og:title`,
           content: title,
         },
+         {
+          property: `og:image`,
+          content: "../images/coat.png",
+        },
         {
           property: `og:description`,
           content: metaDescription,
@@ -74,7 +78,7 @@ function Seo({ description, lang, meta, title }) {
 }
 
 Seo.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
 }
