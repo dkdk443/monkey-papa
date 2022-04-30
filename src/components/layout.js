@@ -1,5 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "@fontsource/zen-maru-gothic"
 import { StaticImage } from "gatsby-plugin-image"
@@ -95,10 +94,6 @@ const Layout = () => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

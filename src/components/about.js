@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import axios from "axios"
+import React from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
 const About = () => (
@@ -91,7 +88,7 @@ const years = [
 
 const History = () => {
   return years.map(year => 
-    <li><span className="year">{year.year}</span><span className="content">{ year.content }</span></li>
+    <li key={year.year}><span className="year">{year.year}</span><span className="content">{ year.content }</span></li>
   );
 }
 

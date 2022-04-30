@@ -40,8 +40,8 @@ const Works = () => {
   }, [])
 
   return posts.map(post =>
-    <a href={post.permalink} target="_blank">
-      <div className='post-item' key={post.id}>
+    <a href={post.permalink} target="_blank" rel="noreferrer"  key={post.id}>
+      <div className='post-item'>
         <div className="post-item__image">
           <img src={post.media_url} alt={post.caption} className='post-item-image' />
           <div className="mask">
@@ -51,7 +51,7 @@ const Works = () => {
           </div>
         </div>
         <span className='like'>
-          <FontAwesomeIcon icon="fa-solid fa-heart" />
+          {/* <FontAwesomeIcon icon="fa-solid fa-heart" /> */}
           {post.like_count} likes</span>
       </div>
     </a>

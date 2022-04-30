@@ -1,6 +1,5 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const Header = () => (
   <header className="header" style={{
@@ -36,20 +35,5 @@ const Header = () => (
 
   </header>
 )
-
-const linkList = [
-  {
-    id: 1,
-    title: "Work"
-  }
-];
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
