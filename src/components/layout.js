@@ -18,6 +18,8 @@ const Layout = () => {
       }
     }
   `)
+  const date = new Date();
+  const year = date.getFullYear();
 
   return (
     <>
@@ -98,6 +100,9 @@ const Layout = () => {
            </div>
           </div>
         </main>
+        <div className="footer">
+          <div className="copy-right">©{ year } Atelier Demoto All Rights Reserved</div>
+        </div>
       </div>
     </>
   )
