@@ -1,14 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import "@fontsource/zen-maru-gothic"
+
 import { StaticImage } from "gatsby-plugin-image"
+
 import Seo from "../components/seo"
-import Header from "./header"
+
+import MobileHeader from "./moibileHeader"
+import Header from "./header.js"
 import "./layout.css"
 import Works from "./works"
 import About from "./about"
+
+import { motion } from 'framer-motion';
+import { useIsSmall } from '../hooks/utils'
+
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "@fontsource/zen-maru-gothic"
+
 
 config.autoAddCss = false;
 
@@ -22,45 +31,11 @@ const Layout = () => {
       }
     }
   `)
-  const sectionNames = ["top", "about", "works", "contact"];
-  const elms = useRef([]);
-
-  sectionNames.forEach((_, i) => {
-    elms.current[i] = React.createRef()
-  })
 
   const date = new Date();
   const year = date.getFullYear();
-  const [height, setHeight] = useState(0);
-  const toggleScroll = () => {
-    setHeight(window.scrollY);
-  }
-
-  useEffect(() => {
-    let elmsCurrent = elms.current;
-    elmsCurrent.forEach(elm => {
-      const rect = JSON.parse(JSON.stringify(elm.current.getBoundingClientRect()));
-      const targetHeight = rect.y;
-      let target = document.getElementById(elm.current.id);
-
-      if (elm.current.id === 'top') {
-        setTimeout(() => {
-            target.classList.add('show');
-        }, 500)
-      } else if (elm.current.id === 'contact') {
-        if (rect.bottom > 600) {
-           target.classList.add('show');
-        }
-      } else {
-        if (targetHeight < 300) {
-          let target = document.getElementById(elm.current.id);
-          target.classList.add('show');
-        }
-      }
-    })
-    window.addEventListener('scroll', toggleScroll);
-    return () => window.removeEventListener('scroll', toggleScroll)
-  })
+  // レスポンシブ対応
+  const isSmall = useIsSmall()
 
   return (
     <>
@@ -75,28 +50,40 @@ const Layout = () => {
             backgroundColor: "#FAF7F0"
           }}
         >
-        <Header
+        {
+          isSmall
+            ?  <MobileHeader
             siteTitle={data.site.siteMetadata?.title || `Title`}
-        />
-          <div className="section" id="top" ref={elms.current[0]}>
+            style={!isSmall ? 'opacity': 0}
+              />
+            : <Header style={!isSmall ? 'opacity': 1}></Header>
+        }
+
+          <div className="section" id="top">
             <div style={{
               marginRight: "64px",
             }}
             className="main-title">
-               <h1
+            <motion.h1
               style={{
                 fontSize: "32px",
                 fontFamily: "Zen Maru Gothic, sans-serif",
                  textAlign: "right"
-            }}
-            >アトリエ 出本</h1>
-            <p
+                }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >アトリエ 出本</motion.h1>
+            <motion.p
               style={{
                   marginRight: "40px",
                   fontSize: "24px",
                   textAlign: "right"
-              }}
-            >Atelier Demoto</p>
+                }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+            >Atelier Demoto</motion.p>
             </div>
             <StaticImage
               src="../images/hero.png"
@@ -110,13 +97,12 @@ const Layout = () => {
           </div>
           <div className="section up"
             id="about"
-            ref={elms.current[1]}
             style={{
               margin: "100px 0"
           }}>
             <About />
           </div>
-          <div className="section up" id="works" ref={elms.current[2]}>
+          <div className="section up" id="works">
             <div className="innner_content">
               <h2>Works <a style={{
                 fontSize: "12px"
@@ -130,7 +116,7 @@ const Layout = () => {
               </div>
             </div>
           </div>
-          <div className="section up" id="contact" ref={elms.current[3]}>
+          <div className="section up" id="contact">
             <div className="innner_content">
               <h2>Contact</h2>
               <p>オーダーメイドの洋服も承っております。</p>

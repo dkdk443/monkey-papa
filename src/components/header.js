@@ -1,50 +1,50 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
+
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
+import { motion } from "framer-motion"
 
-const Header = () => (
-  <header className='header'>
-    <div className="header__left">
-      <h1 style={{
-        margin: 0,
-        fontSize: 20
-      }}>
-      </h1>
-    </div>
-    <div className="header__right">
-      <ul className="menu-item">
-         <li
-          className="header-link"
-          onClick={() =>  scrollTo('#top')}
-        >Top</li>
-        <li
-          className="header-link"
-          onClick={() =>  scrollTo('#about')}
-        >About</li>
-        <li
-          className="header-link"
-           onClick={() =>  scrollTo('#works')}
-        >Works</li>
-        <li
-          className="header-link"
-           onClick={() =>  scrollTo('#contact')}
-        >Contact</li>
-        <a
-          href="https://www.instagram.com/papa.monkey/" target="_blank" rel="noreferrer"
-          className="header-link-icon"
-        >
+const Header = () => {
+  const sectionNames = ["Top", "About", "Works", "Contact"];
+
+  return (
+    <header className='header'>
+      <motion.div
+        className='header_container'
+        initial={{ opacity: 0 }}
+        animate={{ y: 20, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ul className="menu-item">
+          {
+            sectionNames.map((sectionName) => {
+            return (
+              <motion.li
+                key={sectionName}
+                className="header-link"
+                onClick={() => {
+                  scrollTo(`#${sectionName.toLowerCase()}`);
+                }}
+                 whileHover={{
+                  scale: 1.2,
+                  transition: { duration: 0.5 },
+                }}
+              >{sectionName}</motion.li>
+            );
+            })
+          }
+          <a
+            href="https://www.instagram.com/papa.monkey/" target="_blank" rel="noreferrer"
+            className="header-link-icon"
+          >
             <FontAwesomeIcon icon={faInstagram} />
-        </a>
-      </ul>
-      <div className="menu">
-        <FontAwesomeIcon icon={faBars} className="menu-icon" />
-      </div>
-    </div>
-  </header>
-)
+          </a>
+        </ul>
+      </motion.div>
+    </header>
+  )
+}
 
 export default Header

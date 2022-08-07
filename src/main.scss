@@ -10,11 +10,9 @@ a {
 * {
   font-family: "Zen Maru Gothic",
     sans-seri;
-  } 
+  }
 
 .section {
-  opacity: 0;
-  transition: all .5s ease;
   min-height: 600px;
   display: flex;
   justify-content: center;
@@ -94,10 +92,7 @@ a {
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0;
         background-color:	rgba(0,0,0,0.6);
-        -webkit-transition:	all 0.2s ease;
-        transition: all 0.2s ease;
     }
     &:hover {
       .mask {
@@ -127,10 +122,6 @@ input {
   height: 80px;
   z-index: 10;
   font-size: 20px;
-  animation-name:fadeDownAnime;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
-  opacity:0;
   color: #27415F;
   .menu {
    display: none;
@@ -150,8 +141,6 @@ input {
     }
   }
 }
-
-
 
 .prices {
   background-color: rgb(225, 225, 225);
@@ -186,18 +175,6 @@ input {
   justify-content: center;
   padding: 12px 0;
  
-}
-
-@keyframes fadeDownAnime{
-  from {
-    opacity: 0;
-	transform: translateY(-100px);
-  }
-
-  to {
-    opacity: 1;
-	transform: translateY(0);
-  }
 }
 
 
