@@ -8,21 +8,25 @@
   .mobile_header {
     display: flex;
     justify-content: flex-end;
-    z-index: 40;
+    z-index: 20;
     position: fixed;
     top: 0;
+    width: 100vw;
     .header_container {
       position: relative;
 
     }
     .header_icon {
       font-size: 1.4em;
-      position: absolute;
-      top: 10px;
-      right: 30px;
+      display: flex;
+      justify-content: right;
+      margin: 8px;
     }
-      .menu-item {
-        font-size: 24px;
+    .menu-icon {
+      z-index: 30;
+    }
+    .menu-item {
+      font-size: 24px;
         margin: 0 !important;
         pointer-events: none;
         padding: 80px 12px;
@@ -32,23 +36,27 @@
         background-color: rgba(15, 24, 101, 0.869);
         width: 100vw;
         height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
         .header-link {
           padding-bottom: 10px;
-          text-align: center;
           padding: 20px 0;
+          margin-left: 30px;
+          list-style: none;
         }
         .header-link-icon {
           padding-bottom: 10px;
           margin-top: 20px;
+          margin-left: 30px;
           color: white;
-          text-align: center;
         }
-       li {
-        &:hover {
-            cursor: pointer;
+        li {
+          &:hover {
+              cursor: pointer;
+          }
         }
-       }
-      }
+        }
   }
   .section {
     flex-direction: column;

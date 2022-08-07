@@ -11,20 +11,22 @@ const MobileHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const variants = {
-    open_item: { x: '-20%', opacity: 1},
-    closed_item: { x: '0%', opacity: 0}
+    open_item: { x: '20%', opacity: 1 },
+    closed_item: { x: '0%', opacity: 0 }
   }
   const sectionNames = ["Top", "About", "Works", "Contact"];
 
   return (
-    <header className='mobile_header'>
+    <motion.header
+      className='mobile_header'
+    >
       <motion.div
         className='header_container'
       >
         <motion.div
           className="header_icon"
-          initial={{ rotate: 0 }}
           onClick={() => setIsOpen(!isOpen)}
+          style={{ color: isOpen ? "#fff" : "rgba(15, 24, 101)" }}
         >
           {
             isOpen
@@ -36,12 +38,12 @@ const MobileHeader = () => {
         </motion.div>
         <motion.ul
           className="menu-item"
-          animate={isOpen ? 'open_item' : 'closed_item'}
+          animate={ isOpen ? 'open_item' : 'closed_item' }
           transition={{ type: "spring", stiffness: 100 }}
           variants={variants}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
-          style={{ color: 'white', display: 'flex', pointerEvents: isOpen ? 'auto' : 'none'}}
+          style={{ color: 'white', display: 'flex',pointerEvents: isOpen ? 'auto' : 'none'}}
           >
           {
             sectionNames.map((sectionName) => {
@@ -65,7 +67,7 @@ const MobileHeader = () => {
           </a>
         </motion.ul>
       </motion.div>
-    </header>
+    </motion.header>
   )
 }
 
