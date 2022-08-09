@@ -1,6 +1,7 @@
 @media only screen and (max-width:600px) {
   p {
     font-size: 1.2em;
+    margin: 0;
   }
   .layout {
     position: relative;
@@ -17,7 +18,7 @@
 
     }
     .header_icon {
-      font-size: 1.4em;
+      font-size: 2em;
       display: flex;
       justify-content: right;
       margin: 8px;

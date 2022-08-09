@@ -85,6 +85,10 @@ a {
       padding: 8px;
       overflow: hidden;
       line-height: 1.5;
+      &__text {
+       height: -webkit-fill-available;
+       overflow: hidden;
+      }
     }
     .mask {
       	width: 100%;

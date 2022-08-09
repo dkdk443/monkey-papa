@@ -44,7 +44,7 @@ const Works = () => {
           <img src={post.media_url} alt={post.caption} className='post-item-image' />
           <div className="mask">
             <div className="caption">
-              <p>{post.caption}</p>
+              <div className='caption__text'>{post.caption}</div>
             </div>
           </div>
         </div>
