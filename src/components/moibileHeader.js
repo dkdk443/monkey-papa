@@ -14,7 +14,7 @@ const MobileHeader = () => {
     open_item: { x: '20%', opacity: 1 },
     closed_item: { x: '0%', opacity: 0 }
   }
-  const sectionNames = ["Top", "About", "Works", "Contact"];
+  const sectionNames = ["Top", "News", "About", "Works", "Contact"];
 
   return (
     <motion.header

@@ -146,6 +146,55 @@ input {
   }
 }
 
+.news {
+  .news-item {
+    list-style: none;
+    background-color: #fff;
+    padding: 60px 36px;
+    box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 5%);
+    .label {
+      background-color: rgb(68, 3, 3);
+      color: #fff;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 20px;
+      margin: 8px 0;
+    }
+    .s-section {
+      margin-bottom: 14px;
+      padding-left: 32px;
+      .s-title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .place-name {
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .address {
+        font-size: 18px;
+      }
+      .google-map {
+        width: 100%;
+      }
+      ul {
+        margin-left: 0;
+      }
+      .text {
+        font-size: 18px;
+      }
+    }
+
+    .small-text {
+      font-size: 16px;
+    }
+  }
+}
+
 .prices {
   background-color: rgb(225, 225, 225);
   padding: 20px;
