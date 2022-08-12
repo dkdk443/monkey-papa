@@ -21,15 +21,16 @@ const News = () => {
       key={news.id}
       initial={{
         opacity: 0,
-        y: 120
+        y: 40,
       }}
       whileInView={{
         opacity: 1,
         y: 0,
         transition: {
-          type: 'spring',
+          type: "spring",
           bounce: 0.4,
-          duration: 1
+          duration: 0.4,
+          delay: 0.6,
       }}}
     >
       <div className="detail">

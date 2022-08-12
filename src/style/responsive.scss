@@ -71,6 +71,9 @@
     }
     &__right {
       padding: 0 !important;
+      &__top {
+        margin-bottom: 60px;
+      }
     }
 
     .innner_content {
@@ -84,6 +87,9 @@
   }
   #about {
     flex-direction: column-reverse !important;
+  }
+  .hero-image {
+    margin-top: 40px;
   }
   .main-title {
     display: flex;

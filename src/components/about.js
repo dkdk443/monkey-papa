@@ -1,9 +1,10 @@
 import React from 'react';
 import { StaticImage } from "gatsby-plugin-image"
+import { motion } from 'framer-motion';
 
 const About = () => (
   <>
-    <div className="section__left">
+    <motion.div className="section__left">
       <StaticImage
         src="../images/souen.jpeg"
         alt="アトリエ出本"
@@ -25,14 +26,27 @@ const About = () => (
         className='image2'
 
       />
-    </div>
+    </motion.div>
     <div className="section__right">
-      <div className="section__right__top">
-          <h2>About</h2>
-          <h3>出本 正彦</h3>
+      <motion.div
+        className="section__right__top"
+        initial={{
+          opacity: 0,
+          x: 40
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1,
+            delay: 0.8
+        }}}
+        >
+        <h2>About</h2>
+        <h3>出本 正彦</h3>
         <p>Demoto Masahiko</p>
         <p>広島県東広島市志和町の山里で、柿渋染や鯉のぼり、大漁旗、藍古布を用いて洋服を製作しています。</p>
-      </div>
+      </motion.div>
       <div className="section__right__bottom">
         <h2>Profile</h2>
         <ul className="profile">
@@ -79,7 +93,19 @@ const years = [
 
 const History = () => {
   return years.map(year => 
-    <li key={year.year}><span className="year">{year.year}</span><span className="content">{ year.content }</span></li>
+    <motion.li
+      key={year.year}
+      initial={{
+        opacity: 0,
+        y: 20
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1
+      }}}
+    ><span className="year">{year.year}</span><span className="content">{year.content}</span></motion.li>
   );
 }
 

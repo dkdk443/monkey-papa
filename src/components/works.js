@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios"
+import { motion } from "framer-motion"
 
 const Works = () => {
   const [posts, setPosts] = useState([]);
@@ -38,7 +39,25 @@ const Works = () => {
   }, [])
 
   return posts.map(post =>
-    <a href={post.permalink} target="_blank" rel="noreferrer"  key={post.id}>
+    <motion.a
+      href={post.permalink}
+      target="_blank"
+      rel="noreferrer"
+      key={post.id}
+       initial={{
+        opacity: 0,
+        y: 20
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          type: 'spring',
+          bounce: 0.4,
+          duration: 0.8,
+          delay: 0.4
+      }}}
+    >
       <div className='post-item'>
         <div className="post-item__image">
           <img src={post.media_url} alt={post.caption} className='post-item-image' />
@@ -56,7 +75,7 @@ const Works = () => {
           </span>
         </span>
       </div>
-    </a>
+    </motion.a>
     );
   }
 

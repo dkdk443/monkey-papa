@@ -1,15 +1,14 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-
 import { StaticImage } from "gatsby-plugin-image"
 
 import Seo from "../components/seo"
-
 import MobileHeader from "./moibileHeader"
 import Header from "./header.js"
 import "./layout.css"
 import Works from "./works"
 import About from "./about"
+import News from './news';
 
 import { motion } from 'framer-motion';
 import { useIsSmall } from '../hooks/utils'
@@ -17,7 +16,6 @@ import { useIsSmall } from '../hooks/utils'
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fontsource/zen-maru-gothic"
-import News from './news';
 
 
 config.autoAddCss = false;
@@ -94,6 +92,7 @@ const Layout = () => {
               width={240}
               height={320}
               loading="lazy"
+              className='hero-image'
             />
           </div>
           <div className="section" id="news">
