@@ -39,10 +39,7 @@ const Works = () => {
   }, [])
 
   return posts.map(post =>
-    <motion.a
-      href={post.permalink}
-      target="_blank"
-      rel="noreferrer"
+    <motion.div
       key={post.id}
        initial={{
         opacity: 0,
@@ -59,14 +56,15 @@ const Works = () => {
       }}}
     >
       <div className='post-item'>
-        <div className="post-item__image">
+        <a
+          className="post-item__image"
+          href={post.permalink}
+          target="_blank"
+          rel="noreferrer"
+          >
           <img src={post.media_url} alt={post.caption} className='post-item-image' />
-          <div className="mask">
-            <div className="caption">
-              <div className='caption__text'>{post.caption}</div>
-            </div>
-          </div>
-        </div>
+        </a>
+        <p>{post.caption}</p>
         <span className='like'>
           <FontAwesomeIcon icon={faHeart} className
             ="like-icon" />
@@ -75,7 +73,7 @@ const Works = () => {
           </span>
         </span>
       </div>
-    </motion.a>
+    </motion.div>
     );
   }
 

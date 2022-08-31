@@ -8,7 +8,7 @@ const News = () => {
     .filter(news => {
       let now = new Date();
       let end_date = new Date(news.frontmatter.end_date);
-      return end_date > now;
+      return end_date >= now;
     })
     .sort((a, b) => {
       let aNews = a.frontmatter.start_date;
