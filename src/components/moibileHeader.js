@@ -46,10 +46,10 @@ const MobileHeader = () => {
           style={{ color: 'white', display: 'flex',pointerEvents: isOpen ? 'auto' : 'none'}}
           >
           {
-            sectionNames.map((sectionName) => {
+            sectionNames.map((sectionName, index) => {
             return (
               <li
-                key={sectionName}
+                key={index}
                 className="header-link"
                 onClick={() => {
                   scrollTo(`#${sectionName.toLowerCase()}`);
