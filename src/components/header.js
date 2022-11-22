@@ -39,8 +39,22 @@ const Header = () => {
             href="https://www.instagram.com/papa.monkey/" target="_blank" rel="noreferrer"
             className="header-link-icon"
           >
-            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={ faInstagram } />
           </a>
+         <a
+          style={{
+              width: "200px",
+              padding: "8px",
+              backgroundColor: "#0f1865",
+              color: "#fff",
+              fontSize: "16px",
+              display: 'inline-block',
+              textAlign: 'center',
+              margin: "0 30px",
+              borderRadius: "12px",
+              fontWeight: "600"
+            }}
+          href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら</a>
         </ul>
       </motion.div>
     </header>

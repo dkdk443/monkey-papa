@@ -65,6 +65,18 @@ const MobileHeader = () => {
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
+          <a
+            style={{
+              marginTop: "20px",
+              width: "220px",
+              padding: "10px",
+              backgroundColor: "#fff",
+              color: "black",
+              fontSize: "20px",
+              display: 'inline-block',
+              textAlign: 'center'
+            }}
+            href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら>ご購入はこちら</a>
         </motion.ul>
       </motion.div>
     </motion.header>
