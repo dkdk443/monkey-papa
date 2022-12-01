@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: monkey-papa
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - ./:/var/www/html/monkey-papa
+    environment:
+      - NODE_ENV=development
+    tty: true
+    stdin_open: true
