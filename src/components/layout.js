@@ -110,20 +110,7 @@ const Layout = () => {
           }}>
             <About />
           </div>
-          <div className="section up" id="works">
-            <div className="innner_content">
-              <h2>Works <a style={{
-                fontSize: "12px"
-              }}
-                href="https://www.instagram.com/papa.monkey/"
-                target="_blank" rel="noreferrer"
-              >@papa.monkey</a></h2>
-
-              <div className="post-list">
-                   <Works />
-              </div>
-            </div>
-          </div>
+          <Works />
           <div className="section up" id="contact">
             <div className="innner_content">
               <h2>Contact</h2>

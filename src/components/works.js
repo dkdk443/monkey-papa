@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios"
 import { motion } from "framer-motion"
+import { StaticImage } from 'gatsby-plugin-image';
 
 const Works = () => {
   const [posts, setPosts] = useState([]);
@@ -24,57 +25,78 @@ const Works = () => {
     return comparison;
   }
 
+
   useEffect(() => {
-      axios
-        .get(`${urlEndpoint}/${businessId}?fields=name,media .limit(${limit}){ caption,media_url,thumbnail_url,permalink,like_count,comments_count,media_type}&access_token=${accessToken}`)
-        .then(resp => {
-          let data = resp.data.media.data;
-          data = data.sort(compareFunc);
-          data = data.slice(0, 20);
-          setPosts(data);
-        })
-        .catch(error => {
-          console.log(error);
-        })
+    axios
+      .get(`${urlEndpoint}/${businessId}?fields=name,media .limit(${limit}){ caption,media_url,thumbnail_url,permalink,like_count,comments_count,media_type}&access_token=${accessToken}`)
+      .then(resp => {
+        let data = resp.data.media.data;
+        data = data.sort(compareFunc);
+        data = data.slice(0, 20);
+        setPosts(data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }, [])
 
-  return posts.map(post =>
-    <motion.div
-      key={post.id}
-       initial={{
-        opacity: 0,
-        y: 20
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: {
-          type: 'spring',
-          bounce: 0.4,
-          duration: 0.8,
-          delay: 0.4
-      }}}
-    >
-      <div className='post-item'>
-        <a
-          className="post-item__image"
-          href={post.permalink}
-          target="_blank"
-          rel="noreferrer"
-          >
-          <img src={post.media_url} alt={post.caption} className='post-item-image' width="167px" />
-        </a>
-        <p>{post.caption}</p>
-        <span className='like'>
-          <FontAwesomeIcon icon={faHeart} className
-            ="like-icon" />
-          <span className='like-count'>
-              {post.like_count}
-          </span>
-        </span>
+  return (
+     <div className="section up" id="works">
+      <div className="innner_content">
+        <h2>Works <a style={{
+          fontSize: "12px"
+        }}
+          href="https://www.instagram.com/papa.monkey/"
+          target="_blank" rel="noreferrer"
+        >@papa.monkey</a></h2>
+
+        <div className="post-list">
+          {
+            posts.map(post => {
+              return (
+                <motion.div
+                key={post.id}
+                initial={{
+                  opacity: 0,
+                  y: 20
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    type: 'spring',
+                    bounce: 0.4,
+                    duration: 0.8,
+                    delay: 0.4
+                  }
+                }}
+                >
+                  <div className='post-item'>
+                    <a
+                      className="post-item__image"
+                      href={post.permalink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <StaticImage src={post.media_url} alt={post.caption} className='post-item-image' width="167px" />
+                    </a>
+                    <p>{post.caption}</p>
+                    <span className='like'>
+                      <FontAwesomeIcon icon={faHeart} className
+                        ="like-icon" />
+                      <span className='like-count'>
+                        {post.like_count}
+                      </span>
+                    </span>
+                  </div>
+                </motion.div>
+              )
+            })
+          }
+        </div>
       </div>
-    </motion.div>
-    );
+    </div>
+  )
   }
 
 export default Works
