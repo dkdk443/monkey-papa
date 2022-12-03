@@ -78,7 +78,11 @@ const Works = () => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <StaticImage src={post.media_url} alt={post.caption} className='post-item-image' width="167px" />
+                      <img
+                        src={post.media_url}
+                        alt={post.caption}
+                        className='post-item-image'
+                        width="167px" />
                     </a>
                     <p>{post.caption}</p>
                     <span className='like'>
