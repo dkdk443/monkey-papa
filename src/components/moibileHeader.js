@@ -31,32 +31,32 @@ const MobileHeader = () => {
           {
             isOpen
               ? <FontAwesomeIcon icon={faXmark} className="menu-icon" />
-              : <FontAwesomeIcon icon={faBars}      className="menu-icon"
-           />
+              : <FontAwesomeIcon icon={faBars} className="menu-icon"
+              />
           }
 
         </motion.div>
         <motion.ul
           className="menu-item"
-          animate={ isOpen ? 'open_item' : 'closed_item' }
+          animate={isOpen ? 'open_item' : 'closed_item'}
           transition={{ type: "spring", stiffness: 100 }}
           variants={variants}
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
-          style={{ color: 'white', display: 'flex',pointerEvents: isOpen ? 'auto' : 'none'}}
-          >
+          style={{ color: 'white', display: 'flex', pointerEvents: isOpen ? 'auto' : 'none' }}
+        >
           {
             sectionNames.map((sectionName, index) => {
-            return (
-              <li
-                key={index}
-                className="header-link"
-                onClick={() => {
-                  scrollTo(`#${sectionName.toLowerCase()}`);
-                  setIsOpen(false);
-                }}
-              >{sectionName}</li>
-            );
+              return (
+                <li
+                  key={index}
+                  className="header-link"
+                  onClick={() => {
+                    scrollTo(`#${sectionName.toLowerCase()}`);
+                    setIsOpen(false);
+                  }}
+                >{sectionName}</li>
+              );
             })
           }
           <a
@@ -76,7 +76,7 @@ const MobileHeader = () => {
               display: 'inline-block',
               textAlign: 'center'
             }}
-            href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら>ご購入はこちら</a>
+            href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら</a>
         </motion.ul>
       </motion.div>
     </motion.header>
