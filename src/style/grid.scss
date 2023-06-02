@@ -1,0 +1,17 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* PCの場合は4列 */
+  gap: 10px;
+  /* グリッドアイテム間の間隔 */
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* スマートフォンの場合は2列 */
+  }
+  .grid-item {
+    width: 45vw;
+  }
+}

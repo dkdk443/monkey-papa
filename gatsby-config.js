@@ -13,7 +13,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    {
+      resolve: 'gatsby-plugin-image',
+      options: {
+        maxWidth: 180, // スマートフォンの場合の画像の最大幅
+        quality: 100, // 画像の品質
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,21 +42,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-facebook-graphql`,
+      resolve: 'gatsby-source-instagram',
       options: {
-        // Facebook account or page ID
-        pageId: process.env.GATSBY_BUSINESS_ID,
-        params: {
-          fields: [
-            'name',
-            'media',
-          ],
-        },
-        // Access Token from facebook
-        accessToken: process.env.GATSBY_ACCSESS_TOKEN,
+        username: "papa.monkey",
+        instagram_id: process.env.GATSBY_BUSINESS_ID,
+        paginate: 100,
+        maxPosts: 1000,
+        hashtags: true,
+        access_token: process.env.GATSBY_ACCSESS_TOKEN,
       },
     },
-
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-transformer-remark`,

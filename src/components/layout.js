@@ -102,7 +102,7 @@ const Layout = () => {
             flexDirection: "column",
             alignItems: "center"
           }}>
-            <a
+            <motion.a
               style={{
                 width: "320px",
                 padding: "8px",
@@ -115,12 +115,18 @@ const Layout = () => {
                 borderRadius: "12px",
                 fontWeight: "600"
               }}
-              href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら</a>
-            <p style={{
-              fontSize: "12px",
-            }}>※メルカリのサイト（アプリ）に遷移します</p>
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら</motion.a>
+            <motion.p
+              style={{
+                fontSize: "12px",
+              }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}>※メルカリのサイト（アプリ）に遷移します</motion.p>
           </div>
-
           {/* <div className="section" id="news">
             <div className="innner_content">
               <h2>お知らせ</h2>

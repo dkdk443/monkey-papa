@@ -1,31 +1,56 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
-import axios from "axios"
 import { motion } from "framer-motion"
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import '../style/grid.scss';
 
 const Works = () => {
-  const [posts, setPosts] = useState([]);
-  const urlEndpoint = 'https://graph.facebook.com/v13.0/';
-  const limit = 200;
-  const accessToken = process.env.GATSBY_ACCSESS_TOKEN;
-  const businessId = process.env.GATSBY_BUSINESS_ID;
-
-  const compareFunc = (a, b) => {
-    const aPost = a.like_count;
-    const bPost = b.like_count;
-
-    let comparison = 0;
-    if (aPost < bPost) {
-      comparison = 1;
-    } else if (aPost > bPost) {
-      comparison = -1;
+  const data = useStaticQuery(graphql`
+    query InstagramPost {
+      allInstaNode(limit: 20, sort: {order: DESC, fields: likes}) {
+        edges {
+          node {
+            id
+            hashtags
+            comments
+            likes
+            mediaType
+            permalink
+            timestamp
+            preview
+            type
+            username
+            caption
+            original
+            internal {
+              content
+              description
+              ignoreType
+              mediaType
+              contentFilePath
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  layout: FULL_WIDTH
+                )
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    return comparison;
-  }
-  function convertDateFormat(dateString) {
-    const date = new Date(dateString);
+  `);
+
+  function convertTimestampToDateFormat(timestamp) {
+    const date = new Date(timestamp * 1000); // タイムスタンプはミリ秒ではなく秒単位で表されるため、1000倍しています
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -33,38 +58,25 @@ const Works = () => {
     return `${year}/${month}/${day}`;
   }
 
-
-  useEffect(() => {
-    axios
-      .get(`${urlEndpoint}/${businessId}?fields=name,media .limit(${limit}){ caption,media_url,thumbnail_url,permalink,like_count,comments_count,media_type,timestamp}&access_token=${accessToken}`)
-      .then(resp => {
-        let data = resp.data.media.data;
-        console.log(data);
-        data = data.sort(compareFunc);
-        data = data.slice(0, 20);
-        setPosts(data);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }, [])
-
+  const posts = data.allInstaNode.edges;
   return (
     <div className="section up" id="works">
       <div className="innner_content">
-        <h2>Works <a style={{
+        <h2>作品<a style={{
           fontSize: "12px"
         }}
           href="https://www.instagram.com/papa.monkey/"
           target="_blank" rel="noreferrer"
         >@papa.monkey</a></h2>
 
-        <div className="post-list">
+        <div className="post-list grid-container">
           {
             posts.map(post => {
+              const imageData = getImage(post.node.localFile);
               return (
                 <motion.div
-                  key={post.id}
+                  className="grid-item"
+                  key={post.node.id}
                   initial={{
                     opacity: 0,
                     y: 20
@@ -83,26 +95,29 @@ const Works = () => {
                   <div className='post-item'>
                     <a
                       className="post-item__image"
-                      href={post.permalink}
+                      href={post.node.permalink}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <img
-                        src={post.media_url}
-                        alt={post.caption}
-                        className='post-item-image'
-                        width="167px" />
+                      <GatsbyImage
+                        image={imageData}
+                        alt={post.node.caption}
+                        className='post-item-image grid-image'
+                      />
                     </a>
                     <p style={{
                       fontSize: '14px',
                       fontWeight: '400',
-                    }}>投稿日：{convertDateFormat(post.timestamp)}</p>
-                    <p>{post.caption}</p>
+                    }}>投稿日：{ convertTimestampToDateFormat(post.node.timestamp) }</p>
+                    <p style={{
+                      height: "120px",
+                      overflow: "scroll"
+                    }}>{post.node.caption}</p>
                     <span className='like'>
                       <FontAwesomeIcon icon={faHeart} className
                         ="like-icon" />
                       <span className='like-count'>
-                        {post.like_count}
+                        {post.node.likes}
                       </span>
                     </span>
                   </div>
