@@ -38,7 +38,7 @@ const Layout = () => {
 
   return (
     <>
-      <Seo title="アトリエ出本"/>
+      <Seo title="アトリエ出本" />
       <div className='layout'>
         <main
           style={{
@@ -49,32 +49,32 @@ const Layout = () => {
             backgroundColor: "#FAF7F0"
           }}
         >
-        {
-          isSmall
-            ?  <MobileHeader
-            siteTitle={data.site.siteMetadata?.title || `Title`}
-            style={!isSmall ? 'opacity': 0}
+          {
+            isSmall
+              ? <MobileHeader
+                siteTitle={data.site.siteMetadata?.title || `Title`}
+                style={!isSmall ? 'opacity' : 0}
               />
-            : <Header style={!isSmall ? 'opacity': 1}></Header>
-        }
+              : <Header style={!isSmall ? 'opacity' : 1}></Header>
+          }
 
           <div className="section" id="top">
             <div style={{
               marginRight: "64px",
             }}
-            className="main-title">
-            <motion.h1
-              style={{
-                fontSize: "32px",
-                fontFamily: "Zen Maru Gothic, sans-serif",
-                 textAlign: "right"
+              className="main-title">
+              <motion.h1
+                style={{
+                  fontSize: "32px",
+                  fontFamily: "Zen Maru Gothic, sans-serif",
+                  textAlign: "right"
                 }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >アトリエ 出本</motion.h1>
-            <motion.p
-              style={{
+              <motion.p
+                style={{
                   marginRight: "40px",
                   fontSize: "24px",
                   textAlign: "right"
@@ -82,7 +82,7 @@ const Layout = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-            >Atelier Demoto</motion.p>
+              >Atelier Demoto</motion.p>
             </div>
             <StaticImage
               src="../images/hero.png"
@@ -94,20 +94,46 @@ const Layout = () => {
               loading="lazy"
               className='hero-image'
             />
+
           </div>
-          <div className="section" id="news">
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center"
+          }}>
+            <a
+              style={{
+                width: "320px",
+                padding: "8px",
+                backgroundColor: "#0f1865",
+                color: "#fff",
+                fontSize: "16px",
+                display: 'inline-block',
+                textAlign: 'center',
+                margin: "40px 30px 10px",
+                borderRadius: "12px",
+                fontWeight: "600"
+              }}
+              href="https://jp.mercari.com/user/profile/536948409">ご購入はこちら</a>
+            <p style={{
+              fontSize: "12px",
+            }}>※メルカリのサイト（アプリ）に遷移します</p>
+          </div>
+
+          {/* <div className="section" id="news">
             <div className="innner_content">
               <h2>お知らせ</h2>
               <ul className='news'>
                 <News />
               </ul>
             </div>
-          </div>
+          </div> */}
           <div className="section up"
             id="about"
             style={{
               margin: "100px 0"
-          }}>
+            }}>
             <About />
           </div>
           <Works />
@@ -126,11 +152,11 @@ const Layout = () => {
                   target="_blank"
                   rel="noreferrer"
                 >Instagram</a>のダイレクトメールよりお問い合わせください。</p>
-           </div>
+            </div>
           </div>
         </main>
         <div className="footer">
-          <div className="copy-right">©{ year } Atelier Demoto All Rights Reserved</div>
+          <div className="copy-right">©{year} Atelier Demoto All Rights Reserved</div>
         </div>
       </div>
     </>

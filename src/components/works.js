@@ -24,13 +24,22 @@ const Works = () => {
     }
     return comparison;
   }
+  function convertDateFormat(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}/${month}/${day}`;
+  }
 
 
   useEffect(() => {
     axios
-      .get(`${urlEndpoint}/${businessId}?fields=name,media .limit(${limit}){ caption,media_url,thumbnail_url,permalink,like_count,comments_count,media_type}&access_token=${accessToken}`)
+      .get(`${urlEndpoint}/${businessId}?fields=name,media .limit(${limit}){ caption,media_url,thumbnail_url,permalink,like_count,comments_count,media_type,timestamp}&access_token=${accessToken}`)
       .then(resp => {
         let data = resp.data.media.data;
+        console.log(data);
         data = data.sort(compareFunc);
         data = data.slice(0, 20);
         setPosts(data);
@@ -41,7 +50,7 @@ const Works = () => {
   }, [])
 
   return (
-     <div className="section up" id="works">
+    <div className="section up" id="works">
       <div className="innner_content">
         <h2>Works <a style={{
           fontSize: "12px"
@@ -55,21 +64,21 @@ const Works = () => {
             posts.map(post => {
               return (
                 <motion.div
-                key={post.id}
-                initial={{
-                  opacity: 0,
-                  y: 20
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    type: 'spring',
-                    bounce: 0.4,
-                    duration: 0.8,
-                    delay: 0.4
-                  }
-                }}
+                  key={post.id}
+                  initial={{
+                    opacity: 0,
+                    y: 20
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      type: 'spring',
+                      bounce: 0.4,
+                      duration: 0.8,
+                      delay: 0.4
+                    }
+                  }}
                 >
                   <div className='post-item'>
                     <a
@@ -84,6 +93,10 @@ const Works = () => {
                         className='post-item-image'
                         width="167px" />
                     </a>
+                    <p style={{
+                      fontSize: '14px',
+                      fontWeight: '400',
+                    }}>投稿日：{convertDateFormat(post.timestamp)}</p>
                     <p>{post.caption}</p>
                     <span className='like'>
                       <FontAwesomeIcon icon={faHeart} className
@@ -101,6 +114,6 @@ const Works = () => {
       </div>
     </div>
   )
-  }
+}
 
 export default Works

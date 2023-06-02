@@ -35,6 +35,22 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
+    {
+      resolve: `gatsby-source-facebook-graphql`,
+      options: {
+        // Facebook account or page ID
+        pageId: process.env.GATSBY_BUSINESS_ID,
+        params: {
+          fields: [
+            'name',
+            'media',
+          ],
+        },
+        // Access Token from facebook
+        accessToken: process.env.GATSBY_ACCSESS_TOKEN,
+      },
+    },
+
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-transformer-remark`,
