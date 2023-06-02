@@ -51,7 +51,7 @@ const Works = () => {
   `);
 
   function convertTimestampToDateFormat(timestamp) {
-    const date = new Date(timestamp * 1000); // タイムスタンプはミリ秒ではなく秒単位で表されるため、1000倍しています
+    const date = new Date(timestamp * 1000); // タイムスタンプはミリ秒ではなく秒単位で表されるため、1000倍
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
@@ -75,21 +75,22 @@ const Works = () => {
             posts.map(post => {
               const imageData = getImage(post.node.localFile);
               return (
-                <div
+                <motion.div
+                  viewport={{ onece: false }}
                   className="grid-item"
                   key={post.node.id}
                   initial={{
                     opacity: 0,
-                    y: 20
+                    y: 12
                   }}
                   whileInView={{
                     opacity: 1,
                     y: 0,
                     transition: {
-                      type: 'spring',
+                      type: 'easeIn',
                       bounce: 0.4,
-                      duration: 0.8,
-                      delay: 0.4
+                      duration: 0.5,
+                      delay: 0.4,
                     }
                   }}
                 >
@@ -122,7 +123,7 @@ const Works = () => {
                       </span>
                     </span>
                   </div>
-                </div>
+                </motion.div>
               )
             })
           }
