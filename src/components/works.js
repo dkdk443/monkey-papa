@@ -20,28 +20,15 @@ const Works = () => {
             permalink
             timestamp
             preview
-            type
             username
             caption
-            original
-            internal {
-              content
-              description
-              ignoreType
-              mediaType
-              contentFilePath
-            }
             localFile {
               childImageSharp {
                 gatsbyImageData(
                   width: 180
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
-                  layout: FULL_WIDTH
                 )
-                fluid {
-                  src
-                }
               }
             }
           }
