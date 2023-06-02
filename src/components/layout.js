@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
+import { Helmet } from "react-helmet"
 import Seo from "../components/seo"
 import MobileHeader from "./moibileHeader"
 import Header from "./header.js"
@@ -38,6 +38,9 @@ const Layout = () => {
 
   return (
     <>
+      <Helmet>
+        <html lang="ja" />
+      </Helmet>
       <Seo title="アトリエ出本" />
       <div className='layout'>
         <main

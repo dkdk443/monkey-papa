@@ -34,6 +34,7 @@ const Works = () => {
             localFile {
               childImageSharp {
                 gatsbyImageData(
+                  width: 180
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
                   layout: FULL_WIDTH
@@ -74,7 +75,7 @@ const Works = () => {
             posts.map(post => {
               const imageData = getImage(post.node.localFile);
               return (
-                <motion.div
+                <div
                   className="grid-item"
                   key={post.node.id}
                   initial={{
@@ -101,7 +102,7 @@ const Works = () => {
                     >
                       <GatsbyImage
                         image={imageData}
-                        alt={post.node.caption}
+                        alt={'インスタグラムの投稿：'+post.node.caption}
                         className='post-item-image grid-image'
                       />
                     </a>
@@ -121,7 +122,7 @@ const Works = () => {
                       </span>
                     </span>
                   </div>
-                </motion.div>
+                </div>
               )
             })
           }
