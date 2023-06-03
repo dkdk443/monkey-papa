@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import { motion } from "framer-motion"
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -51,11 +52,16 @@ const Works = () => {
     <div className="section up" id="works">
       <div className="innner_content">
         <h2>作品<a style={{
-          fontSize: "12px"
+          fontSize: "18px"
         }}
           href="https://www.instagram.com/papa.monkey/"
           target="_blank" rel="noreferrer"
-        >@papa.monkey</a></h2>
+        ><FontAwesomeIcon icon={faInstagram}
+          style={{
+            marginLeft: "10px",
+            marginRight: "6px"
+            }}
+          />@papa.monkey</a></h2>
 
         <div className="post-list grid-container">
           {

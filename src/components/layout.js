@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+
 import Seo from "../components/seo"
 import MobileHeader from "./moibileHeader"
 import Header from "./header.js"
@@ -8,10 +8,10 @@ import "./layout.css"
 import Works from "./works"
 import About from "./about"
 import News from './news';
+import Top from './top';
 
 import { motion } from 'framer-motion';
 import { useIsSmall } from '../hooks/utils'
-
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@fontsource/zen-maru-gothic"
@@ -56,45 +56,7 @@ const Layout = () => {
               />
               : <Header style={!isSmall ? 'opacity' : 1}></Header>
           }
-
-          <div className="section" id="top">
-            <div style={{
-              marginRight: "64px",
-            }}
-              className="main-title">
-              <motion.h1
-                style={{
-                  fontSize: "32px",
-                  fontFamily: "Zen Maru Gothic, sans-serif",
-                  textAlign: "right"
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >アトリエ 出本</motion.h1>
-              <motion.p
-                style={{
-                  marginRight: "40px",
-                  fontSize: "24px",
-                  textAlign: "right"
-                }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >Atelier Demoto</motion.p>
-            </div>
-            <StaticImage
-              src="../images/hero.png"
-              alt="アトリエ出本"
-              placeholder="blurred"
-              layout="fixed"
-              width={240}
-              height={320}
-              loading="lazy"
-              className='hero-image'
-            />
-
-          </div>
+          <Top />
           <div style={{
             display: "flex",
             justifyContent: "center",
@@ -126,14 +88,14 @@ const Layout = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}>※メルカリのサイト（アプリ）に遷移します</motion.p>
           </div>
-          {/* <div className="section" id="news">
+          <div className="section" id="news">
             <div className="innner_content">
               <h2>お知らせ</h2>
               <ul className='news'>
                 <News />
               </ul>
             </div>
-          </div> */}
+          </div>
           <div className="section up"
             id="about"
             style={{

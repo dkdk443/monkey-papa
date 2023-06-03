@@ -68,8 +68,16 @@ const News = () => {
           <div className="title">{ news.frontmatter.title }</div>
           <div className="s-title">■ 日時</div>
           <div className="s-section">
-            <div className="date">{ news.frontmatter.start_date }~{ news.frontmatter.end_date }</div>
-            <div className="time">{news.frontmatter.start_time}~{news.frontmatter.end_time}</div>
+            <div className="date"
+              style={{
+                fontSize:"20px"
+              }}
+            >{news.frontmatter.start_date}~{news.frontmatter.end_date}</div>
+            <div
+              className="time"
+              style={{
+              fontSize: "20px"
+            }}>{news.frontmatter.start_time}~{news.frontmatter.end_time}</div>
             {
               news.frontmatter.date_time_note.map((note, index) => 
                 <div key={index} className="small-text"> ※{ note }</div>
@@ -84,17 +92,26 @@ const News = () => {
             <div className="address">
               { news.frontmatter.address }
             </div>
-            <div className="place">
-              <iframe className='google-map' src={news.frontmatter.map_url} style={{ border: 0 }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={news.frontmatter.address}></iframe>
+            <div className="place" style={{
+              marginTop: '20px',
+            }}>
+              <iframe className='google-map'
+                src={news.frontmatter.map_url}
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                title={news.frontmatter.address}
+                height={300}
+              ></iframe>
             </div>
             <div>{ news.frontmatter.tell }</div>
           </div>
-          <div className="s-title">■ 内容</div>
+          {/* <div className="s-title">■ 内容</div>
           <div className="s-section">
             <div className="text" dangerouslySetInnerHTML={{__html: news.html }}>
 
             </div>
-          </div>
+          </div> */}
         </div>
       </motion.li>
     );
