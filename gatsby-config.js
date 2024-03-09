@@ -41,17 +41,6 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    {
-      resolve: 'gatsby-source-instagram',
-      options: {
-        username: "papa.monkey",
-        instagram_id: process.env.GATSBY_BUSINESS_ID,
-        paginate: 100,
-        maxPosts: 1000,
-        hashtags: true,
-        access_token: process.env.GATSBY_ACCSESS_TOKEN,
-      },
-    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-transformer-remark`,
