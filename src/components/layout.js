@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
 
 import Seo from "../components/seo"
 import MobileHeader from "./moibileHeader"
@@ -20,16 +19,6 @@ import "@fontsource/zen-maru-gothic"
 config.autoAddCss = false;
 
 const Layout = () => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   const date = new Date();
   const year = date.getFullYear();
   // レスポンシブ対応
@@ -51,7 +40,7 @@ const Layout = () => {
           {
             isSmall
               ? <MobileHeader
-                siteTitle={data.site.siteMetadata?.title || `Title`}
+                siteTitle="アトリエ出本"
                 style={!isSmall ? 'opacity' : 0}
               />
               : <Header style={!isSmall ? 'opacity' : 1}></Header>
