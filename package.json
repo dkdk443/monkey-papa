@@ -23,6 +23,7 @@
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-source-filesystem": "^4.25.0",
+    "gatsby-source-instagram": "^0.9.0",
     "gatsby-transformer-remark": "^5.20.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "prop-types": "^15.8.1",
