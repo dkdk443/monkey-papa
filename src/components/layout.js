@@ -4,7 +4,7 @@ import Seo from "../components/seo"
 import MobileHeader from "./moibileHeader"
 import Header from "./header.js"
 import "./layout.css"
-// import Works from "./works"
+import Works from "./works"
 import About from "./about"
 import News from './news';
 import Top from './top';
@@ -92,7 +92,7 @@ const Layout = () => {
             }}>
             <About />
           </div>
-          {/* <Works /> */}
+          <Works />
           <div className="section up" id="contact">
             <div className="innner_content">
               <h2>Contact</h2>
