@@ -15,7 +15,6 @@ const Works = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response);
         setPosts(response.data.media.data);
       } catch (e) {
         console.error(e);
